@@ -70,9 +70,11 @@ public class DBConnection {
 //		}
 //		
 //	}
-//	public void delete(String table) {
-//		
-//	}
+	public void deleteNote(int noteId) throws SQLException {
+		Statement s = null;
+		s = conn.createStatement();
+		s.execute("DELETE FROM APP.Note WHERE ID = "+noteId);
+	}
 	public void insertUser(User user) throws SQLException {
 		 PreparedStatement psInsert;
 //	     PreparedStatement psUpdate;
@@ -132,7 +134,6 @@ public class DBConnection {
 	}
 	public void insertNote(Note note) throws SQLException {
 		PreparedStatement psInsert;
-//	     PreparedStatement psUpdate;
 	    ArrayList<Statement> statements = new ArrayList<Statement>();
 	    if (note.getAlertDate()!=null) {
 	    	
